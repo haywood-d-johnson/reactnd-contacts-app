@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListContacts from "./ListContacts"
 
 class App extends Component {
+  //methods that modify data should live with the data 
   state = {
     contacts: [
       {
@@ -24,10 +25,20 @@ class App extends Component {
       }
     ]
   }
+
+  removeContact = contact => {
+    this.setState(currentState => ({
+      contacts: currentState.contacts.filter(c => c.id !== contact.id)
+    }))
+  }
+
   render() {
     return (
       <div>
-        <ListContacts contacts={this.state.contacts} />
+        <ListContacts
+          contacts={this.state.contacts}
+          onDeleteContact={this.removeContact}
+        />
       </div>
     );
   }
