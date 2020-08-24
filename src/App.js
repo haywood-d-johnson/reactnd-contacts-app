@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ListContacts from "./ListContacts"
 
 class App extends Component {
-  //methods that modify data should live with the data 
   state = {
     contacts: [
       {
